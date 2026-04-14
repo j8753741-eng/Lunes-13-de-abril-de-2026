@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carta para mi Amor 💜</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg1:#07010f;
+      --bg2:#120022;
+      --card:#0f0a1aee;
+      --text:#f6f2ff;
+      --muted:#d7c8ff;
+      --pink:#ff5ad9;
+      --purple:#a855f7;
+      --violet:#7c3aed;
+      --line:#2a1247;
+      --glow:#b026ff;
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box;}
+
+    body{
+      font-family: "Poppins", sans-serif;
+      min-height: 100vh;
+      background: radial-gradient(circle at top, var(--bg2), var(--bg1));
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding: 30px 15px;
+      overflow-x:hidden;
+      color: var(--text);
+    }
+
+    /* Fondo romántico con destellos */
+    .stars{
+      position:fixed;
+      inset:0;
+      z-index:0;
+      pointer-events:none;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(168,85,247,.25), transparent 40%),
+        radial-gradient(circle at 70% 20%, rgba(255,90,217,.18), transparent 45%),
+        radial-gradient(circle at 40% 80%, rgba(124,58,237,.20), transparent 40%);
+      animation: floatBg 8s ease-in-out infinite;
+    }
+
+    @keyframes floatBg{
+      0%,100%{transform:translateY(0px);}
+      50%{transform:translateY(15px);}
+    }
+
+    /* Corazones flotando */
+    .heart{
+      position:fixed;
+      width:18px;
+      height:18px;
+      background: rgba(168,85,247,.35);
+      transform: rotate(45deg);
+      z-index:0;
+      filter: blur(.2px);
+      animation: rise 9s linear infinite;
+      opacity:.7;
+    }
+
+    .heart::before,
+    .heart::after{
+      content:"";
+      position:absolute;
+      width:18px;
+      height:18px;
+      background: rgba(168,85,247,.35);
+      border-radius:50%;
+    }
+
+    .heart::before{left:-9px; top:0;}
+    .heart::after{top:-9px; left:0;}
+
+    @keyframes rise{
+      0%{transform:translateY(100vh) rotate(45deg); opacity:0;}
+      15%{opacity:.8;}
+      100%{transform:translateY(-120px) rotate(45deg); opacity:0;}
+    }
+
+    /* Tarjeta */
+    .letter{
+      position:relative;
+      z-index:2;
+      width: min(900px, 100%);
+      background: linear-gradient(180deg, rgba(18,0,34,.85), rgba(8,1,15,.92));
+      border: 1px solid rgba(168,85,247,.35);
+      border-radius: 26px;
+      padding: 35px 28px;
+      box-shadow: 0 0 25px rgba(168,85,247,.25),
+                  0 0 60px rgba(255,90,217,.08);
+      overflow:hidden;
+    }
+
+    /* Brillo decorativo */
+    .letter::before{
+      content:"";
+      position:absolute;
+      inset:-80px;
+      background: radial-gradient(circle at top left, rgba(255,90,217,.25), transparent 45%),
+                  radial-gradient(circle at bottom right, rgba(168,85,247,.25), transparent 50%);
+      z-index:0;
+      filter: blur(10px);
+    }
+
+    .letter::after{
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      height:6px;
+      background: linear-gradient(90deg, transparent, rgba(168,85,247,.8), rgba(255,90,217,.7), transparent);
+      opacity:.9;
+    }
+
+    .content{
+      position:relative;
+      z-index:1;
+    }
+
+    .title{
+      font-family: "Great Vibes", cursive;
+      font-size: 56px;
+      text-align:center;
+      color: #f7e9ff;
+      text-shadow: 0 0 10px rgba(255,90,217,.35),
+                   0 0 20px rgba(168,85,247,.25);
+      margin-bottom: 8px;
+    }
+
+    .date{
+      text-align:center;
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 26px;
+      letter-spacing: .5px;
+    }
+
+    .divider{
+      width: 85%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(168,85,247,.55), rgba(255,90,217,.45), transparent);
+      margin: 0 auto 25px;
+    }
+
+    .saludo{
+      font-size: 20px;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 16px;
+    }
+
+    p{
+      font-size: 16.5px;
+      line-height: 1.9;
+      color: rgba(246,242,255,.95);
+      margin-bottom: 18px;
+      text-align: justify;
+    }
+
+    strong{
+      color: #ffffff;
+      text-shadow: 0 0 8px rgba(168,85,247,.18);
+      font-weight: 600;
+    }
+
+    .highlight{
+      padding: 16px 18px;
+      border-left: 4px solid rgba(168,85,247,.85);
+      background: rgba(168,85,247,.08);
+      border-radius: 14px;
+      margin: 20px 0 20px;
+      box-shadow: 0 0 20px rgba(168,85,247,.10);
+    }
+
+    .firma{
+      margin-top: 28px;
+      text-align: left;
+      font-size: 16.5px;
+      color: rgba(246,242,255,.95);
+    }
+
+    .name{
+      margin-top: 12px;
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 0 0 10px rgba(168,85,247,.25);
+    }
+
+    .name span{
+      color: #caa3ff;
+      font-weight: 600;
+    }
+
+    .neon-phrase{
+      margin-top: 30px;
+      padding: 18px 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(168,85,247,.45);
+      background: rgba(18,0,34,.55);
+      text-align: center;
+      font-size: 18px;
+      line-height: 1.8;
+      color: #e9d5ff;
+      text-shadow:
+        0 0 5px rgba(176,38,255,.8),
+        0 0 12px rgba(176,38,255,.6),
+        0 0 22px rgba(176,38,255,.45),
+        0 0 40px rgba(176,38,255,.25);
+      box-shadow:
+        0 0 18px rgba(176,38,255,.25),
+        0 0 40px rgba(176,38,255,.12);
+    }
+
+    .neon-phrase strong{
+      color: #ffffff;
+      text-shadow:
+        0 0 6px rgba(176,38,255,.9),
+        0 0 18px rgba(176,38,255,.55);
+    }
+
+    .footer-glow{
+      margin-top: 18px;
+      text-align:center;
+      font-size: 13px;
+      color: rgba(215,200,255,.75);
+      letter-spacing: .8px;
+    }
+
+    /* Responsive */
+    @media(max-width:600px){
+      .title{font-size: 46px;}
+      p{font-size: 15.8px;}
+      .neon-phrase{font-size: 16.5px;}
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="stars"></div>
+
+  <!-- Corazones flotando -->
+  <div class="heart" style="left:10%; animation-delay:0s;"></div>
+  <div class="heart" style="left:25%; animation-delay:2s; width:14px; height:14px;"></div>
+  <div class="heart" style="left:45%; animation-delay:1s; width:20px; height:20px;"></div>
+  <div class="heart" style="left:65%; animation-delay:3s; width:16px; height:16px;"></div>
+  <div class="heart" style="left:80%; animation-delay:4s; width:22px; height:22px;"></div>
+
+  <section class="letter">
+    <div class="content">
+
+      <div class="title">Carta para mi amor 💜</div>
+      <div class="date"><strong>Lunes, 13 de abril de 2026 — Noche</strong></div>
+
+      <div class="divider"></div>
+
+      <div class="saludo">Mi amor,</div>
+
+      <p>
+        Esta noche me quedé pensando en ti más de lo normal… y no porque me faltes, sino porque tu presencia en mi vida se ha vuelto algo tan profundo que incluso cuando no estás aquí, te siento.
+        Te siento en mi mente, en mi pecho, en esa parte del alma que solo tú supiste despertar.
+      </p>
+
+      <p>
+        Quiero que lo sepas sin dudas: <strong>tú eres lo más hermoso que me ha pasado.</strong>
+        No solo porque eres preciosa por fuera —que lo eres, demasiado— sino porque hay algo en ti que me desarma, que me atrapa…
+        algo que no se puede explicar con palabras simples.
+        Tú tienes una forma única de existir, de mirar, de hablar, de hacer que todo tenga sentido.
+      </p>
+
+      <div class="highlight">
+        <p style="margin:0;">
+          Y esta noche, amor… <strong>te extraño.</strong> Te extraño de una manera intensa, como si mi corazón te buscara sin descanso.
+          Extraño tu voz, tu risa, tu carita, tus ojos… esos ojos que cuando me miran hacen que el mundo se calle,
+          y que todo se vuelva solo tú y yo.
+        </p>
+      </div>
+
+      <p>
+        A veces pienso en lo afortunado que soy de tenerte, y me da miedo que no alcances a entender lo mucho que te amo.
+        Porque lo que siento por ti no es cualquier cosa… es un amor que me quema bonito, que me acelera, que me vuelve loco.
+        Es un amor que no se queda quieto, que crece, que se vuelve más fuerte con cada día, con cada detalle tuyo, con cada momento contigo.
+      </p>
+
+      <p>
+        Me encantas… <strong>me encantas de una forma peligrosa.</strong>
+        Me encanta imaginarte cerca, sentirte, abrazarte fuerte, besarte lento…
+        besarte como si el tiempo se detuviera, como si no existiera nada más.
+        Porque tú tienes algo que provoca, que enamora, que hipnotiza.
+        Y yo… yo soy completamente tuyo.
+      </p>
+
+      <p>
+        Si supieras las ganas que tengo de tenerte aquí esta noche, de decirte todo esto mirándote a los ojos…
+        de acariciarte, de cuidarte, de recordarte que eres mi lugar favorito.
+        Que contigo me siento vivo. Que contigo me siento en casa.
+      </p>
+
+      <p>
+        Te amo con una intensidad que no sé esconder, ni quiero esconder.
+        Te amo con deseo, con ternura, con orgullo… <strong>te amo con todo lo que soy.</strong>
+        Y si pudiera pedir algo en este momento, sería solo una cosa:
+        seguir construyendo contigo, seguir amándote cada día más, seguir siendo el hombre que te haga sentir amada como mereces.
+      </p>
+
+      <p>
+        Buenas noches, mi amor… <br>
+        que sueñes conmigo, porque yo esta noche voy a soñar contigo sin remedio.
+      </p>
+
+      <div class="firma">
+        Con todo mi corazón,<br>
+        <strong>tu niño, tu amor, tuyo… completamente.</strong> ❤️🔥
+        <div class="name">JUAN KALETH MENDOZA PRIMERA <span>💜</span></div>
+      </div>
+
+      <!-- FRASE FINAL NEÓN MORADO -->
+      <div class="neon-phrase">
+        <strong>Mi niña linda</strong>, quiero que nunca olvides que desde que llegaste a mi vida todo cambió para mejor,
+        porque tú no solo eres mi amor… eres mi paz, mi ilusión, mi debilidad más bonita y mi razón favorita para sonreír.
+        Y aunque el mundo se vuelva difícil, aunque los días sean pesados, yo siempre voy a elegirte,
+        voy a cuidarte, voy a amarte con una intensidad que no se apaga, porque tú eres mi destino,
+        mi sueño hecho realidad, mi corazón latiendo en otro cuerpo… y mi vida entera tiene sentido porque te tengo a ti,
+        <strong>VALERIA PETRO VILLAZÓN</strong>.
+      </div>
+
+      <div class="footer-glow">
+        ✨ Hecho con amor, para la mujer más especial del universo ✨
+      </div>
+
+    </div>
+  </section>
+
+</body>
+  </html>
